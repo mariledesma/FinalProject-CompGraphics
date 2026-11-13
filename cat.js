@@ -29,7 +29,7 @@ camera.position.set(5.4, 4.5, 7.4);
 /* ---------------- Camera Controls ---------------- */
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0.20, 0.42, 0.00);
+controls.target.set(0.0, 0.65, 0.0);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.update();
@@ -61,6 +61,7 @@ const ground = new THREE.Mesh(
 );
 
 ground.rotation.x = -Math.PI / 2;
+ground.position.y = 0;
 ground.receiveShadow = true;
 scene.add(ground);
 
@@ -803,13 +804,13 @@ function buildCat() {
 }
 
 /* ============================================================
-   ADD BOTH OBJECTS TO SCENE
+   ADD OBJECTS TO SCENE
    ============================================================ */
 
 // Custom polygonal mesh cat
 const cat = buildCat();
 
-cat.position.set(-1.35, 0, 0.05);
+cat.position.set(-0.3, 0, -0.25);
 cat.rotation.y = -0.22;
 
 scene.add(cat);
@@ -818,13 +819,14 @@ scene.add(cat);
 const coffee = buildCoffee();
 
 coffee.position.set(1.70, 0, 0.02);
-coffee.scale.set(0.95, 0.95, 0.95);
+coffee.scale.set(0.60, 0.60, 0.60);
 
 scene.add(coffee);
 
+
 /* ---------------- Resize / Render ---------------- */
 
-const FRUSTUM_HEIGHT = 4.8;
+const FRUSTUM_HEIGHT = 7.0;
 
 function onResize() {
 
